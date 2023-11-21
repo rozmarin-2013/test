@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  api:
+    container_name: api
+    build:
+      context: ./docker/php
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./api:/var/www/test
+    depends_on:
+      - postgres
+    networks:
+      - test
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    ports:
+      - '8081:8081'
+    volumes:
+      - ./api:/var/www/test
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - test
+    depends_on:
+      - api
+  postgres:
+    container_name: postgres
+    image: postgres:13.8-alpine
+    volumes:
+      - ./docker/postgres:/var/lib/postgresql/data
+    ports:
+      - "54324:5432"
+    environment:
+      POSTGRES_USER: api
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test
+    networks:
+      - test
+networks:
+  test:
+    name: test
