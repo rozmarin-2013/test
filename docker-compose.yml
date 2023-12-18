@@ -10,7 +10,7 @@ services:
     volumes:
       - ./api:/var/www/test
     depends_on:
-      - postgres
+      - mysql
     networks:
       - test
   nginx:
@@ -25,19 +25,26 @@ services:
       - test
     depends_on:
       - api
-  postgres:
-    container_name: postgres
-    image: postgres:13.8-alpine
-    volumes:
-      - ./docker/postgres:/var/lib/postgresql/data
-    ports:
-      - "54324:5432"
+  mysql:
+    container_name: test_mysql
+    image: mysql:8.0
+    restart: always
     environment:
-      POSTGRES_USER: api
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: test
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'test'
+      MYSQL_PASSWORD: 'secret'
+      MYSQL_DATABASE: 'test'
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - '3305:3306'
     networks:
       - test
+
 networks:
   test:
     name: test
+
+
+volumes:
+  mysql:
