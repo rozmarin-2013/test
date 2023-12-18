@@ -17,8 +17,8 @@ class Order
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'orders')]
-    private ?Manager $managerId = null;
+    #[ORM\ManyToOne(inversedBy: 'manager')]
+    private ?Manager $manager = null;
 
     public function getId(): ?int
     {
@@ -37,14 +37,14 @@ class Order
         return $this;
     }
 
-    public function getManagerId(): ?Manager
+    public function getManager(): ?Manager
     {
-        return $this->managerId;
+        return $this->manager;
     }
 
-    public function setManagerId(?Manager $managerId): static
+    public function setManager(?Manager $manager): static
     {
-        $this->managerId = $managerId;
+        $this->manager = $manager;
 
         return $this;
     }

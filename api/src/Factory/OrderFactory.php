@@ -2,6 +2,7 @@
 
 namespace App\Factory;
 
+use App\DataFixtures\ManagerFixtures;
 use App\Entity\Order;
 use App\Repository\OrderRepository;
 use Zenstruck\Foundry\ModelFactory;
@@ -47,8 +48,7 @@ final class OrderFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'name' => self::faker()->text(255),
-       //     'managerId' => $this->ge
+            'name' => self::faker()->title
         ];
     }
 
