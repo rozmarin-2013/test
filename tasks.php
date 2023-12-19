@@ -10,15 +10,15 @@ class test
     }
 }
 
-function task1($array, $n)
-{
-    $a = new test(1);
-    $b = new test(2);
-    $c = new test(3);
-    $a->next = $b;
-    $b->next = $c;
-    $c->next = null;
+$a = new test(1);
+$b = new test(2);
+$c = new test(3);
+$a->next = $b;
+$b->next = $c;
+$c->next = null;
 
+function task1($c)
+{
     $objects = [];
     $objects[] = $a;
     $obj = $a;
