@@ -1,0 +1,40 @@
+version: "3.8"
+
+networks:
+  kodano_network:
+
+services:
+  nginx:
+    image: "nginx:stable-alpine"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./:/var/www/kodano
+    networks:
+      - kodano_network
+    depends_on:
+      - php
+  db:
+    ports:
+      - "3306:3306"
+    env_file:
+      - .docker/env/mysql.env
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - kodano_network
+    environment:
+      MYSQL_DATABASE: kodano_db
+      MYSQL_USER: kodano
+      MYSQL_PASSWORD: kodano
+      MYSQL_ROOT_PASSWOR: root
+  php:
+    build: ./docker/php
+    restart: always
+    volumes:
+      - ./:/var/www/kodano
+    networks:
+      - kodano_network
+    depends_on:
+      - db
