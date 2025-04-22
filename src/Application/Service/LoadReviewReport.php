@@ -9,7 +9,6 @@ use App\Domain\Enum\NotificationTypeEnum;
 use App\Domain\Enum\StatusEnum;
 use Doctrine\Common\Collections\ArrayCollection;
 
-
 class LoadReviewReport implements LoadReportInterface
 {
     private int $countReviews;
@@ -20,7 +19,6 @@ class LoadReviewReport implements LoadReportInterface
         private ReviewReportResponse $reportResponse,
     )
     {
-
     }
 
     public function execute(ArrayCollection $notifications): array

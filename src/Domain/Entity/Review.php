@@ -67,7 +67,6 @@ class Review
         return $this->phone_customer;
     }
 
-
     public function getCreatedAt(): \DateTime
     {
         return $this->created_at;

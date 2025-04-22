@@ -8,3 +8,4 @@ enum PriorityEnum: string
     case HIGH = 'wysoki';
     case NORMAL = 'normalny';
 }
+
