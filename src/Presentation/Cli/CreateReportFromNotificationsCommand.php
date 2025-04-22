@@ -22,10 +22,10 @@ class CreateReportFromNotificationsCommand extends Command
 {
     public function __construct(
         #[AutowireIterator('app.load_report_tag')]
-        private iterable           $loader,
-        private LoggerInterface $logger,
+        private iterable                  $loader,
+        private LoggerInterface           $createReportNotificationLogger,
         private CreateNotificationService $createNotificationService,
-        private SaveReport $saveReport,
+        private SaveReport                $saveReport,
     )
     {
         parent::__construct();
@@ -70,8 +70,7 @@ class CreateReportFromNotificationsCommand extends Command
                 $notificationsCollections->add($this->createNotificationService->createFromArray($notification));
             } catch (\Exception $e) {
                 $errorNotificationsCollections->add($notification);
-                $output->writeln('<error>' . $e->getMessage() . '</error>');
-                $this->logger->error($e->getMessage());
+                $this->createReportNotificationLogger->error($e->getMessage());
             }
         }
 
@@ -84,10 +83,12 @@ class CreateReportFromNotificationsCommand extends Command
 
         $this->saveReport->save($errorNotificationsCollections->toArray(), 'report/error.json');
 
-        $output->writeln([
+        foreach ([
             ...$messages,
-            sprintf('Ogólna liczba przetworzonych wiadomości: %d', count($notifications))
-        ]);
+                     sprintf('Ogólna liczba przetworzonych wiadomości: %d', count($notifications))
+                 ] as $message) {
+            $this->createReportNotificationLogger->info($message);
+        }
 
         return Command::SUCCESS;
     }

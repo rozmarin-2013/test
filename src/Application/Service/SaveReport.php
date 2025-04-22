@@ -2,14 +2,15 @@
 
 namespace App\Application\Service;
 
+use JsonException;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
-class SaveReport
+readonly class SaveReport
 {
 
     public function __construct(
-        private Filesystem $filesystem,
+        private Filesystem            $filesystem,
         private ParameterBagInterface $params
     )
     {
@@ -17,7 +18,7 @@ class SaveReport
     }
 
     /**
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function save(array $data, string $path): void
     {
