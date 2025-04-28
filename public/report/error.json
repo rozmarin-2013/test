@@ -1,0 +1,50 @@
+[
+    {
+        "number": 1,
+        "description": "Awaria klimatyzacji. Na salonie temperatura wzrosła do 27 stopni. Pozdrawiam Ela.",
+        "dueDate": "2020-01-04 13:30:00",
+        "phone": ""
+    },
+    {
+        "number": 2,
+        "description": "Prośba o wizytę    ",
+        "dueDate": "2020-01-07 00:30:11",
+        "phone": "\""
+    },
+    {
+        "number": 3,
+        "description": "Cieknący kran na zapleczu. Mokre buty!",
+        "dueDate": "2020-02-01 04:32:00",
+        "phone": "4"
+    },
+    {
+        "number": 9,
+        "description": "Klima nie chłodzi, tylko grzeje, nie jestem z tego powodu zadowolona.",
+        "dueDate": null,
+        "phone": ""
+    },
+    {
+        "number": 11,
+        "description": "Prośba o wizytę    ",
+        "dueDate": "2020-02-23",
+        "phone": ""
+    },
+    {
+        "number": 14,
+        "description": "Awaria kotła w głownym pomieszczeniu magazynowym.",
+        "dueDate": "",
+        "phone": ""
+    },
+    {
+        "number": 16,
+        "description": "Awaria kotła w głownym pomieszczeniu magazynowym.",
+        "dueDate": "",
+        "phone": ""
+    },
+    {
+        "number": 19,
+        "description": "Brak internetu w pomieszczeniu pracowniczym, nie wiem może ktoś urwał od internetu kabel.",
+        "dueDate": "",
+        "phone": null
+    }
+]

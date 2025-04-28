@@ -36,6 +36,7 @@ services:
     restart: always
     volumes:
       - ./:/var/www/kodano
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
     networks:
       - kodano_network
     depends_on:

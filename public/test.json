@@ -1,0 +1,170 @@
+{
+    "0": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Awaria klimatyzacji. Na salonie temperatura wzros\u0142a do 27 stopni. Pozdrawiam Ela.",
+        {
+            "date": "2020-01-04 13:30:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "",
+        "2025-04-22 06:32:20"
+    ],
+    "1": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Pro\u015bba o wizyt\u0119    ",
+        {
+            "date": "2020-01-07 00:30:11.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "\"",
+        "2025-04-22 06:32:20"
+    ],
+    "2": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Ciekn\u0105cy kran na zapleczu. Mokre buty!",
+        {
+            "date": "2020-02-01 04:32:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "4",
+        "2025-04-22 06:32:20"
+    ],
+    "3": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        " Odpada tynk mi\u0119dzy szaf\u0105, rega\u0142em a witryn\u0105, prosz\u0119 o doklejenie go.",
+        {
+            "date": "2020-02-03 15:15:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "666-445-127",
+        "2025-04-22 06:32:20"
+    ],
+    "6": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Awaria! Awaria pompy g\u0142\u0119binowej w na basenie dla go\u015bci VIP. Nie ma czasu prosz\u0119 w tej chwili przyjecha\u0107.",
+        {
+            "date": "2025-04-22 06:32:20.347957",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "668-221-777",
+        "2025-04-22 06:32:20"
+    ],
+    "8": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Klima nie ch\u0142odzi, tylko grzeje, nie jestem z tego powodu zadowolona.",
+        {
+            "date": "2025-04-22 06:32:20.348009",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "",
+        "2025-04-22 06:32:20"
+    ],
+    "10": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Pro\u015bba o wizyt\u0119    ",
+        {
+            "date": "2020-02-23 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "",
+        "2025-04-22 06:32:20"
+    ],
+    "11": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Bardzo pilne. Prosz\u0119 o interwencj\u0119 serwisu, ch\u0142odziarki w dziale mi\u0119so dzia\u0142aj\u0105 jak chc\u0105, tzn. dzia\u0142aj\u0105 albo nie dzia\u0142aj\u0105.",
+        {
+            "date": "2020-03-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "876123567",
+        "2025-04-22 06:32:20"
+    ],
+    "12": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Sprawa jest dos\u0107 pilna poniewa\u017c mamy wyciek wody lodowej przy samym suficie, w rogu. Prosz\u0119 o wizyt\u0119!",
+        {
+            "date": "2020-03-02 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "873322976",
+        "2025-04-22 06:32:20"
+    ],
+    "13": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Awaria kot\u0142a w g\u0142ownym pomieszczeniu magazynowym.",
+        {
+            "date": "2025-04-22 06:32:20.348017",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "",
+        "2025-04-22 06:32:20"
+    ],
+    "14": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Krajalnice mi\u0119so. Nie dzia\u0142a tarczka g\u0142\u00f3wnej maszyny bardzo pilne.",
+        {
+            "date": "2025-04-22 06:32:20.348018",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "888241636",
+        "2025-04-22 06:32:20"
+    ],
+    "15": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Awaria kot\u0142a w g\u0142ownym pomieszczeniu magazynowym.",
+        {
+            "date": "2025-04-22 06:32:20.348019",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "",
+        "2025-04-22 06:32:20"
+    ],
+    "18": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "Brak internetu w pomieszczeniu pracowniczym, nie wiem mo\u017ce kto\u015b urwa\u0142 od internetu kabel.",
+        {
+            "date": "2025-04-22 06:32:20.348024",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "",
+        "2025-04-22 06:32:20"
+    ],
+    "19": [
+        "zg\u0142oszenie awarji",
+        "termin",
+        "pRosimy o natychmiastoO0wy Przgl\u0105d wuzk\u00f3w wid\u0142owych, wydaje sie ze cos z nNIch wYCIEKa",
+        {
+            "date": "2020-04-01 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "567-124-572",
+        "2025-04-22 06:32:20"
+    ]
+}
