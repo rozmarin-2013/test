@@ -3,8 +3,8 @@
 namespace App\EventListener;
 
 use App\Attributes\Ajax;
+use App\Response\AjaxResponse;
 use ReflectionClass;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -39,11 +39,7 @@ class AjaxExceptionListener
         } else {
             $code = Response::HTTP_INTERNAL_SERVER_ERROR;
         }
-        $response = new JsonResponse(
-            [
-                'success' => false,
-                'message' => $message,
-            ]);
+        $response = new AjaxResponse(false,  ['message' => $message], $code);
 
         $event->setResponse($response);
     }

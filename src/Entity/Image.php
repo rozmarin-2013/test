@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
 class Image
 {
-    const SERVER_PATH_TO_IMAGE_FOLDER =   '/public/images';
+    const SERVER_PATH_TO_IMAGE_FOLDER =   '/images';
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -47,7 +47,7 @@ class Image
 
     public function getPathToDirectory(): ?string
     {
-        return realpath(__DIR__ . '/../..' . self::SERVER_PATH_TO_IMAGE_FOLDER. '/' . $this->shortPath);
+        return realpath(__DIR__ . '/../../public' . self::SERVER_PATH_TO_IMAGE_FOLDER. '/' . $this->shortPath);
     }
 
 
@@ -70,7 +70,7 @@ class Image
         $filename = uniqid('img_', true) . '.' . $extension;
 
         $this->getFile()->move(
-            __DIR__ . '/../..' . self::SERVER_PATH_TO_IMAGE_FOLDER,
+            __DIR__ . '/../../public' . self::SERVER_PATH_TO_IMAGE_FOLDER,
             $filename
         );
 

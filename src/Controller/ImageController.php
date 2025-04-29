@@ -2,34 +2,42 @@
 
 namespace App\Controller;
 
-use App\Attributes\Ajax;
-use App\Services\ImageService;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
+use App\Repository\ImageRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpKernel\Attribute\MapUploadedFile;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Validator\Constraints as Assert;
 
-#[Ajax]
 class ImageController extends AbstractController
 {
-    public function __construct(private ImageService $imageService){}
+    const LIMIT = 5;
 
-    #[Route('/upload/picture', methods: ['POST'])]
-    public function upload(
-        #[MapUploadedFile([
-            new Assert\File(mimeTypes: ['image/png', 'image/jpeg', ]),
-            new Assert\Image(maxSize: '5M'),
-        ], 'file')] UploadedFile $picture,
-    ): JsonResponse
+    public function __construct(private readonly ImageRepository $imageRepository)
     {
-       $image = $this->imageService->save($picture);
+    }
 
-       return new JsonResponse([
-           'success' => true,
-           'image' => $image->getFullPath(),
-       ]);
+    #[Route('/pictures', methods: ['GET'])]
+    public function index(): Response
+    {
+        return $this->render('images/index.html.twig');
+    }
+
+    #[Route('/pictures/show', name: 'show_pictures', methods: ['GET'])]
+    public function showList(Request $request, PaginatorInterface $paginator): Response
+    {
+        $query = $this->imageRepository->createQueryBuilder('i')
+            ->orderBy('i.id', 'DESC')
+            ->getQuery();
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', self::LIMIT)
+        );
+
+        return $this->render('images/picture_gallery.html.twig', [
+            'pagination' => $pagination,
+        ]);
     }
 }

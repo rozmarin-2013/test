@@ -1,0 +1,46 @@
+
+<h1>Gallery</h1>
+
+<form id="upload-form" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+
+<div id="gallery-container">
+
+</div>
+
+
+<script>
+    document.getElementById('upload-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        const response = await fetch('{{ path("picture_upload") }}', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            reloadGallery();
+        }
+    });
+
+    function reloadGallery(page = 1) {
+        fetch('{{ path("show_pictures") }}?page=' + page)
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('gallery-container').innerHTML = html;
+
+                document.querySelectorAll('#gallery-container .pagination a').forEach(link => {
+                    link.addEventListener('click', e => {
+                        e.preventDefault();
+                        const page = new URL(link.href).searchParams.get('page');
+                        reloadGallery(Number(page));
+                    });
+                });
+            });
+    }
+
+    reloadGallery();
+</script>
