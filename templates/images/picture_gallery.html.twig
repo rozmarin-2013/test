@@ -1,0 +1,13 @@
+<div style="display: flex; flex-wrap: wrap;">
+    {% for image in pagination %}
+        <div style="margin: 10px;">
+            <img src="{{ asset(image.fullPath) }}" style="max-width: 200px;" alt="">
+        </div>
+    {% else %}
+        <p>No images were found.</p>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    {{ knp_pagination_render(pagination) }}
+</div>
