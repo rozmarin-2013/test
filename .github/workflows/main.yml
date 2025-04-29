@@ -26,7 +26,7 @@ jobs:
 
       - name: Rsync project files to server
         run: |
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa" --exclude '.git' ./ ${{ secrets.USER }}@${{ secrets.SERVER_IP }}:${{ secrets.REMOTE_DIR }}
+          rsync -avz -e "ssh -i ~/.ssh/github" --exclude '.git' ./ ${{ secrets.USER }}@${{ secrets.SERVER_IP }}:${{ secrets.REMOTE_DIR }}
 
       - name: Run remote deployment script
         run: |
