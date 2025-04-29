@@ -10,7 +10,6 @@ jobs:
   # Job для деплоя на сервер
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # Деплой запускается после успешного завершения job'а build
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -38,17 +37,14 @@ jobs:
             echo "🔄 Перезапуск docker-контейнеров..."
             docker compose down
             docker compose up -d --build
-
             echo "🔍 Проверка изменений composer.json и миграций..."
             CHANGED=\$(git diff --name-only HEAD~1 HEAD || true)
-
             if echo "\$CHANGED" | grep -qE 'composer\.json|composer\.lock'; then
               echo "📦 Выполняем composer install..."
               docker compose exec -T php composer install --no-interaction --prefer-dist --optimize-autoloader
             else
               echo "✅ composer.json не изменялся — пропускаем composer install"
             fi
-
             if echo "\$CHANGED" | grep -qE '^migrations/'; then
               echo "🧱 Выполняем doctrine:migrations:migrate..."
               docker compose exec -T php php bin/console doctrine:migrations:migrate --no-interaction
