@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Attribute\MapUploadedFile;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[Ajax]
+
 class AjaxImageController extends AbstractController
 {
     public function __construct(private readonly ImageService $imageService)
