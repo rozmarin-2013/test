@@ -19,7 +19,7 @@ class AjaxImageController extends AbstractController
     {
     }
 
-    #[Route('/upload/picture', name: 'picture_upload', methods: ['POST'])]
+    #[Route('/upload/picture', name: 'picture_upload', methods: ['POST'], format: 'json')]
     public function upload(
         #[MapUploadedFile([
             new Assert\File(mimeTypes: ['image/png', 'image/jpeg',]),

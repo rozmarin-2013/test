@@ -20,9 +20,6 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\EventListener\AjaxExceptionListener:
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception }
     Imagine\Image\ImagineInterface:
         class: Imagine\Gd\Imagine
 
