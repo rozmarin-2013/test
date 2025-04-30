@@ -22,7 +22,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Rsync project files to server
-        run: rsync --archive --compress --progress . root@217.114.15.109:/home/kodano
+        run: rsync --archive --compress --progress . root@217.114.15.109:root/home/kodano
 
       - name: Run remote deployment script
         run: |
