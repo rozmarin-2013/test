@@ -28,5 +28,5 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Rsync project files to server
-        run: rsync -avz -e "ssh -i ~/.ssh/github -o IdentitiesOnly=yes" ./ root@217.114.15.109:kodano
+        run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
 
