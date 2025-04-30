@@ -17,7 +17,7 @@ class ImageController extends AbstractController
     {
     }
 
-    #[Route('/pictures', methods: ['GET'])]
+    #[Route('/', methods: ['GET'])]
     public function index(): Response
     {
         return $this->render('images/index.html.twig');
