@@ -10,7 +10,7 @@ on:
 env:
   SERVER_HOST: 217.114.15.109
   SERVER_USER: root
-  SERVER_PATH: kodano
+  SERVER_PATH: ../home/kodano
 
 jobs:
   # Job для деплоя на сервер
