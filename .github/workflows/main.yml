@@ -22,7 +22,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Rsync project files to server
-        run: rsync --archive --compress --progress . ${{ secrets.USER }}@${{ secrets.SERVER_IP }}:${{ secrets.REMOTE_ }}
+        run: rsync --archive --compress --progress . ${{ secrets.USER }}@${{ secrets.SERVER_IP }}:${{ secrets.REMOTE_DIR }}
 
       - name: Run remote deployment script
         run: |
