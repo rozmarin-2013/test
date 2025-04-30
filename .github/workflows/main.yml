@@ -5,6 +5,12 @@ on:
     branches:
       - master    
   workflow_dispatch:
+
+env:
+  SERVER_HOST: 217.114.15.109
+  SERVER_USER: root
+  SERVER_PATH: /kodano
+
 jobs:
   # Job для деплоя на сервер
   deploy:
@@ -22,29 +28,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Rsync project files to server
-        run: rsync --archive --compress --progress . root@217.114.15.109:kodano
-
-      - name: Run remote deployment script
-        run: |
-          ssh ${{ secrets.USER }}@${{ secrets.SERVER_IP }} << EOF
-            set -e
-            cd ${{ secrets.REMOTE_DIR }}
-            
-            echo "🔄 Перезапуск docker-контейнеров..."
-            docker compose down
-            docker compose up -d --build
-            echo "🔍 Проверка изменений composer.json и миграций..."
-            CHANGED=\$(git diff --name-only HEAD~1 HEAD || true)
-            if echo "\$CHANGED" | grep -qE 'composer\.json|composer\.lock'; then
-              echo "📦 Выполняем composer install..."
-              docker compose exec -T php composer install --no-interaction --prefer-dist --optimize-autoloader
-            else
-              echo "✅ composer.json не изменялся — пропускаем composer install"
-            fi
-            if echo "\$CHANGED" | grep -qE '^migrations/'; then
-              echo "🧱 Выполняем doctrine:migrations:migrate..."
-              docker compose exec -T php php bin/console doctrine:migrations:migrate --no-interaction
-            else
-              echo "✅ Миграции не изменялись — пропускаем"
-            fi
-          EOF
+        run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
