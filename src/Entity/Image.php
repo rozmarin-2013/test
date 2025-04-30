@@ -69,16 +69,6 @@ class Image
         $extension = $this->getFile()->guessExtension();
         $filename = uniqid('img_', true) . '.' . $extension;
 
-        $path = __DIR__ . '/../../public/images';
-
-        if (!is_dir($path)) {
-            if (mkdir($path, 0775, true)) {
-                echo "Папка '$path' успешно создана.";
-            } else {
-                echo "❌ Не удалось создать папку '$path'.";
-            }
-        }
-
         $this->getFile()->move(
             __DIR__ . '/../../public' . self::SERVER_PATH_TO_IMAGE_FOLDER,
             $filename
